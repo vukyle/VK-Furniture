@@ -24,13 +24,16 @@
             <div id="mobileOverlay" class="mobile-menu__overlay">
                     <ul class="mobile-menu__container">
 
-                        <li><a class="mobile-menu__link" href="#work">WORK</a></li>
-                        <li><a class="mobile-menu__link" href="#contact">CONTACT</a></li>
+                        <li><a class="mobile-menu__link" href="#home">HOME</a></li>
+                        <li><a class="mobile-menu__link" href="#visit">VISIT</a></li>
+                        <li><a class="mobile-menu__link" href="#testimonial">TESTIMONIALS</a></li>
+                        <li><a class="mobile-menu__link" href="#about">ABOUT</a></li>
+                        <li><a class="mobile-menu__link" href="#gallery">GALLERY</a></li>
 
                     </ul>
                 </div>
 
-                <div class="hamburger-container">
+                <div id="hamburger-container" class="hamburger-container">
                     <div id="menuToggle" class="hamburger">
                           <span></span>
                           <span></span>
@@ -39,9 +42,9 @@
                 </div>
 
         </nav>
-        <div class="home">
+        <div id="home" class="home">
             <h1 class="home__header">
-                VK Furniture
+                VK Furniture &amp; Mattress
             </h1>
 
             <div class="main-slider__container">
@@ -58,10 +61,13 @@
             </div>
 
             <div id="visit" class="visit">
+                <h1 class="home__header-desktop">
+                    VK Furniture &amp; Mattress
+                </h1>
                 <div class="visit__img"></div>
                 <div class="visit__textbox">
                     <h2>PHONE</h2>
-                    <p>(562) 529-7025</p>
+                    <a href="tel:+1-562-529-7025"><p>(562) 529-7025</p></a>
                     <h2>LOCATION</h2>
                     <p>5721 Lakewood Blvd</p>
 
@@ -92,7 +98,7 @@
             </div>
         </div>
 
-        <div class="testimonial">
+        <div id="testimonial" class="testimonial">
 
             <div class="testimonial__container">
 
@@ -111,7 +117,7 @@
             </div>
         </div>
 
-        <div class="about">
+        <div id="about" class="about">
             <h1 class="about__header">
                 VK Furniture &amp; Mattress
             </h1>
@@ -120,7 +126,7 @@
             </p>
         </div>
 
-        <div class="gallery">
+        <div id="gallery" class="gallery">
             <div class="gallery__slider-main">
                 <div>
                     <img src="img/slider-1.jpg" alt="">
@@ -143,25 +149,21 @@
             </div>
 
 
-            <div class="gallery__slider-nav">
+
+
+            <div id="thumb-gallery" class="gallery__slider-nav">
 
                 <div>
-                    <img src="img/slider-1-thumbnail.jpg" alt="">
                 </div>
                 <div>
-                    <img src="img/slider-2-thumbnail.jpg" alt="">
                 </div>
                 <div>
-                    <img src="img/slider-3-thumbnail.jpg" alt="">
                 </div>
                 <div>
-                    <img src="img/slider-4-thumbnail.jpg" alt="">
                 </div>
                 <div>
-                    <img src="img/slider-5-thumbnail.jpg" alt="">
                 </div>
                 <div>
-                    <img src="img/slider-6-thumbnail.jpg" alt="">
                 </div>
 
             </div>
@@ -171,9 +173,17 @@
         <footer class="footer">
             <div class="footer__header">
                 <h1>VK Furniture &amp; Mattress</h1>
-                <p>5721 Lakewood Blvd,
+                <p class="desktop-link">5721 Lakewood Blvd,
                     <br>
-                    Lakewood, CA 90712</p>
+                    Lakewood, CA 90712
+                </p>
+                <a class="google-map-link"href="geo:?q=5721+Lakewood+Blvd+Lakewood">
+                    <p>5721 Lakewood Blvd,
+                        <br>
+                        Lakewood, CA 90712
+                    </p>
+                </a>
+                    <a href="tel:+1-562-529-7025"><p>(562) 529-7025</p></a>
             </div>
             <div class="footer__hours">
                 <!-- <h2>HOURS</h2> -->
@@ -198,7 +208,11 @@
                         <li>12PM-5PM</li>
                     </ul>
                 </div>
+            </div>
 
+            <div class="credit">
+                <p>&copy; VK Furniture &amp; Mattress</p>
+                <p>Designed and developed by <a href="https://www.vukyle.com/" target="_blank">Vu Le</a></p>
             </div>
         </footer>
 

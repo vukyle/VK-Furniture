@@ -1,0 +1,287 @@
+body
+    font-family: 'Raleway', sans-serif
+//NAVIGATION
+.mobile-menu
+    &__overlay
+        height: 100%
+        width: 0
+        position: fixed
+        left: 0
+        top: 0
+        background-color: rgba(#ffffff, 0.9)
+        transition: 500ms
+        z-index: 2
+        display: flex
+        align-items: center
+        transition: 500ms
+        overflow-x: hidden
+        &--active
+            height: 100%
+    &__container
+        width: 100%
+        position: relative
+        text-align: center
+        li
+            margin-bottom: 30 / 16 * 1em
+            .mobile-menu__link
+                font-size: 2.5em
+                color: $primary-color2
+            .active
+                color: $primary-color2
+            a
+                transition: color 500ms
+                &:hover
+                    color: #77a7ac
+
+.hamburger-container
+    position: fixed
+    left: 10px
+    top: 10px
+    width: 30px
+    height: 30px
+    padding: 10px
+    background-color: white
+    box-sizing: content-box
+    border-radius: 50%
+    z-index: 3
+    display: flex
+    justify-content: center
+    flex-direction: column
+    &--active
+        background-color: transparent
+
+
+.hamburger
+    transform: rotate(0deg)
+    transition: 1s ease-in-out
+    cursor: pointer
+    // position: fixed
+    // left: 20px
+    // top: 20px
+    width: 30px
+    height: 20px
+    //z-index: 10
+
+.hamburger span
+    display: block
+    position: absolute
+    height: 2px
+    width: 100%
+    background: $primary-color2
+    border-radius: 0
+    opacity: 1
+    left: 0
+    transform: rotate(0deg)
+    transition: .25s ease-in-out
+
+
+.hamburger span:nth-child(1)
+  top: 0px
+
+.hamburger span:nth-child(2)
+  top: 10px
+
+.hamburger span:nth-child(3)
+  top: 20px
+
+.hamburger.open span
+    background: $primary-color2
+
+.hamburger.open span:nth-child(1)
+  top: 10px
+  transform: rotate(135deg)
+
+.hamburger.open span:nth-child(2)
+  opacity: 0
+  left: -60px
+
+.hamburger.open span:nth-child(3)
+  top: 10px
+  transform: rotate(-135deg)
+
+.home__header
+    font-weight: 300
+    font-size: 30 / 16 * 1em
+    text-align: center
+    margin-top: 10px
+    text-decoration: underline
+    text-decoration-color: $primary-color1
+    &-desktop
+        @extend .home__header
+        display: none
+
+.main-slider__container
+    position: relative
+    overflow: hidden
+    &:hover
+        opacity: 1
+
+    .left, .right
+        font-size: 7em
+        font-weight: lighter
+        cursor: pointer
+        opacity: 0
+        display: none
+        transition: opacity 1s
+    .right
+        position: absolute
+        right: -25px
+        top: 50%
+        transform: translateY(-50%)
+        z-index: 1
+    .left
+        position: absolute
+        left: -25px
+        top: 50%
+        transform: translateY(-50%)
+        z-index: 1
+    .slick-dots li button:before
+        opacity: 1
+    .slick-dots li.slick-active button:before
+        color: white
+        opacity: .9
+    .slick-dots
+        bottom: 10px
+    .slick-dotted.slick-slider
+        margin-bottom: 0
+
+.main-slider
+    div img
+        width: 100%
+
+.visit
+    margin-top: 10px
+    display: flex
+    justify-content: space-between
+    &__img
+        width: 50%
+        //height: auto
+        background-image: url('~img/visit.jpg')
+        background-size: cover
+        background-position: 20% 50%
+        display: inline-block
+    &__textbox
+        width: 50%
+        display: inline-block
+        margin-left: 10px
+    h2, p
+        margin: 0
+        font-weight: 300
+    h2
+        font-size: 1.5em
+    h2:nth-child(n+2)
+        margin-top: 10px
+    .days
+        display: flex
+        line-height: 200%
+        ul
+            margin: 0
+            .active
+                color: red
+        ul:nth-child(1)
+            margin-right: 20px
+            li
+                font-weight: 700
+
+.testimonial
+    display: flex
+    flex-direction: column
+    justify-content: center
+    margin-top: 10px
+    overflow: hidden
+    //height: 100vh
+    height: 500px
+    background-color: $primary-color1
+    color: #ffffff
+    text-align: center
+    &__header
+        font-weight: 300
+
+.about
+    width: 90%
+    margin: 0 auto
+    &__header
+        text-align: center
+        font-weight: 300
+    &__textbody
+
+.gallery__slider-main
+    margin: 0 auto
+    max-width: 100%
+    img
+        width: 100%
+
+
+.gallery__slider-nav
+    margin-top: 5px
+    display: flex
+    flex-wrap: wrap
+    justify-content: center
+    div
+        background-size: cover
+        width: 30%
+        padding-bottom: 30%
+        margin: 5px
+        cursor: pointer
+        &:nth-child(1)
+            background-image: url('~img/slider-1.jpg')
+        &:nth-child(2)
+            background-image: url('~img/slider-2.jpg')
+        &:nth-child(3)
+            background-image: url('~img/slider-3.jpg')
+        &:nth-child(4)
+            background-image: url('~img/slider-4.jpg')
+        &:nth-child(5)
+            background-image: url('~img/slider-5.jpg')
+        &:nth-child(6)
+            background-image: url('~img/slider-6.jpg')
+
+
+.footer
+    background-color: $primary-color1
+    color: #ffffff
+    margin-top: 5px
+    a
+        color: #ffffff
+    &__header
+        margin-left: 10px
+        padding-top: 1em
+        width: 50%
+        h1
+            font-size: 1.3em
+            font-weight: 300
+            line-height: 90%
+            margin: 0
+    .desktop-link
+        display: none
+    &__hours
+        display: flex
+        justify-content: flex-start
+        margin-left: 10px
+    .container
+        width: 50%
+        display: flex
+        flex-wrap: wrap
+        justify-content: flex-start
+        line-height: 200%
+
+        h2
+            width: 100%
+            display: inline-block
+    .days
+        margin: 0 1em 0 0
+        font-weight: 700
+        .active
+            color: red
+    .hour
+        margin: 0
+    .credit
+        text-align: center
+        font-weight: 300
+        padding-bottom: 2em
+        p:nth-child(1)
+            margin: 1em 0 0 0
+        p:nth-child(2)
+            margin: 0
+        a
+            color: white

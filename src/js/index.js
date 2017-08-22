@@ -3,20 +3,25 @@ import '../../slick/slick.js';
 //var slick = require('slick-carousel');
 
 $('.main-slider').slick({
-  dots: true,
-  autoplay: true,
+    dots: true,
+    autoplay: true,
+    nextArrow: $('#right'),
+    prevArrow: $('#left')
 });
 
 const nav = {
     toggleMenu: function() {
         var hamburger = document.getElementById('menuToggle');
+        var hamburgerContainer = document.getElementById('hamburger-container');
         var nav = document.getElementById('mobileOverlay');
 
         if (hamburger.className === 'hamburger') {
             hamburger.className = 'hamburger open';
+            $(hamburgerContainer).addClass('hamburger-container--active');
             nav.style.width = '100%';
         } else {
             hamburger.className = 'hamburger';
+            $(hamburgerContainer).removeClass('hamburger-container--active');
             nav.style.width = '0';
             }
         },
@@ -42,16 +47,19 @@ nav.eventListener();
 
 function highlightDay() {
     const dayOfWeek = document.getElementById('day-of-week').getElementsByTagName('LI');
-     const date = new Date();
-     const day = date.getDay();
-     let weekArray = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
-     weekArray = weekArray.map((item) => {
-         return weekArray.indexOf(item);
-     });
+    const dayOfWeekFooter = document.getElementById('day-of-week-footer').getElementsByTagName('LI');
+    const date = new Date();
+    const day = date.getDay() - 1;
+    // let weekArray = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+    // weekArray = weekArray.map((item) => {
+    //  return weekArray.indexOf(item);
+    // });
+    let weekArray = [0, 1, 2, 3, 4, 5, 6];
 
      for (let i = 0; i < weekArray.length; i++) {
-         if (day === weekArray[i] + 1) {
+         if (day === weekArray[i]) {
          $(dayOfWeek[i]).addClass('active');
+         $(dayOfWeekFooter[i]).addClass('active');
          break;
          }
      }
@@ -59,34 +67,67 @@ function highlightDay() {
 highlightDay();
 
 $('.testimonial__slider').slick({
-  dots: true,
   autoplay: true,
+  arrows: false
 });
 
 $('.gallery__slider-main').slick({
- slidesToShow: 1,
- slidesToScroll: 1,
- arrows: false,
- asNavFor: '.gallery__slider-nav'
+    autoplay: false,
+    arrows: false
 });
-$('.gallery__slider-nav').slick({
-    arrows: false,
-    slidesToShow: 4,
-    slidesToScroll: 3,
-    asNavFor: '.gallery__slider-main',
-    dots: false,
-    centerMode: true,
-    focusOnSelect: true,
-    responsive: [
-    {
-        breakpoint: 1024,
-        settings:
-        {
-        arrows: false,
-        centerMode: true,
-        centerPadding: '40px',
-        slidesToShow: 2
+
+const gallery = {
+    imgIDArray: [],
+    createID: function() {
+        const img = document.getElementById('thumb-gallery').getElementsByTagName('DIV');
+        for (let i=0; i < img.length; i++) {
+            this.imgIDArray[i] = 'img-gallery-' + i;
+            img[i].setAttribute('id', this.imgIDArray[i]);
         }
+    },
+    assignPosition: function(child) {
+        let node = document.getElementById(child);
+        var i = 0;
+        while(node.previousSibling) {
+            node = node.previousSibling;
+            if(node.nodeType === 1) {
+                i++;
+            }
+        }
+        return i;
+    },
+    GoToSlide: function(id) {
+        this.button = () => {
+            $('.gallery__slider-main').slick('slickGoTo', gallery.assignPosition(id));
+        };
+
+    },
+    addEventHandler: function () {
+        let img = null;
+        let imgElement = null;
+        function toggle (element, button) {
+                element.onclick = () => {
+                    button.button();
+                };
+        }
+
+        for (let i = 0; i < this.imgIDArray.length; i++) {
+            img = new this.GoToSlide(this.imgIDArray[i]);
+            imgElement = document.getElementById('img-gallery-' + i);
+            toggle(imgElement, img);
+        }
+
+    },
+    eventListener: function() {
+        let mainGallery = document.getElementById("thumb-gallery");
+        mainGallery.addEventListener('click', function(event){
+            let elementClicked = event.target;
+            console.log(event);
+            $('.gallery__slider-main').slick('slickGoTo', 3);
+
+        });
     }
-]
-});
+};
+//gallery.eventListener();
+gallery.createID();
+gallery.addEventHandler();

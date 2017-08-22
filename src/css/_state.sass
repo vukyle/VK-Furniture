@@ -1,0 +1,76 @@
+//Mouse input devices
+@media (hover: hover)
+    .main-slider__container
+        .left, .right
+            display: block
+            color: white
+        &:hover
+            .left, .right
+                opacity: 1
+    .footer__header
+        p:nth-child(1)
+            display: block
+        .google-map-link
+            display: none
+        .desktop-link
+            display: block
+
+
+@media screen and (min-width: 1024px)
+    // .home
+    //     display: flex
+    // .home__header
+    //     display: none
+    //     &-desktop
+    //         display: block
+    //         width: 100%
+    //         text-align: left
+    //         margin: 0
+    //
+    // .main-slider__container
+    //     width: 70%
+    // .visit
+    //     flex-direction: column
+    //     justify-content: flex-start
+    //     width: 30%
+    //     margin: 0
+    //     padding: 1.2em
+    //     &__img
+    //         display: none
+    //     &__textbox
+    //         margin: 2em 0 0 0
+    //         align-self: flex-start
+    //         font-size: 1.2em
+
+    .gallery__slider-nav
+        div
+            width: 10%
+            padding-bottom: 10%
+    .gallery__slider-main
+        max-width: 50%
+
+@media screen and (min-width:1380px)
+    .home
+        display: flex
+    .home__header
+        display: none
+        &-desktop
+            display: block
+            width: 100%
+            text-align: left
+            margin: 0
+
+    .main-slider__container
+        width: 70%
+    .visit
+        flex-direction: column
+        justify-content: flex-start
+        width: 30%
+        margin: 0
+        padding: 1.2em
+        &__img
+            display: none
+        &__textbox
+            margin: 2em 0 0 0
+            align-self: flex-start
+            font-size: 1.2em
